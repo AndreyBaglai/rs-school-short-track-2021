@@ -11,17 +11,30 @@
  *
  */
 
+const ListNode = require('../extensions/list-node');
+
 class Queue {
-  get size() {
-    throw new Error('Not implemented');
+  constructor() {
+    this.queue = [];
   }
 
-  enqueue(/* element */) {
-    throw new Error('Not implemented');
+  get size() {
+    return this.queue.length;
+  }
+
+  enqueue(element) {
+    const node = new ListNode();
+    node.value = element;
+    const firstNode = this.queue[0];
+    if (firstNode) {
+      node.next = firstNode;
+    }
+    this.queue.unshift(node);
   }
 
   dequeue() {
-    throw new Error('Not implemented');
+    const deleteNode = this.queue.pop();
+    return deleteNode.value;
   }
 }
 
