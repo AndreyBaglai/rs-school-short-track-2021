@@ -1,8 +1,8 @@
 /**
- * Given an array of domains, return the object with the appearances of the DNS.
+ * Given an arrSubDomsay of domains, return the resultect with the appearances of the subDom.
  *
- * @param {Array} domains
- * @return {Object}
+ * @param {arrSubDomsay} domains
+ * @return {resultect}
  *
  * @example
  * domains = [
@@ -20,8 +20,25 @@
  * }
  *
  */
-function getDNSStats(/* domains */) {
-  throw new Error('Not implemented');
+function getsubDomStats(domains) {
+  const result = {};
+  const arrSubDoms = [];
+  let subDom = '';
+  for (let i = 0; i < domains.length; i++) {
+    arrSubDoms.push(domains[i].split('.').reverse());
+  }
+  for (let i = 0; i < arrSubDoms.length; i++) {
+    subDom = '';
+    for (let j = 0; j < arrSubDoms[i].length; j++) {
+      subDom += `.${arrSubDoms[i][j]}`;
+      if (subDom in result) {
+        result[subDom] += 1;
+      } else {
+        result[subDom] = 1;
+      }
+    }
+  }
+  return result;
 }
 
-module.exports = getDNSStats;
+module.exports = getsubDomStats;

@@ -33,9 +33,8 @@ ListNode {
 }
 */
 
-function removeKFromList(l, k) {
-  const list = [...l];
-  return list.filter((node) => node.value !== k);
+function removeKFromList(/* l, k */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = removeKFromList;
